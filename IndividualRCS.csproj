@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<AssemblyTitle>Control thrust nozzles individually for more precise and effecient manuevers.</AssemblyTitle>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<WarningLevel>9999</WarningLevel>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="KSPBuildTools" Version="1.1.1" />
+		<PackageReference Include="Krafs.Publicizer" Version="2.3.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ModReference Include="0Harmony">
+			<DLLPath>GameData/000_Harmony/0Harmony.dll</DLLPath>
+			<CKANIdentifier>Harmony2</CKANIdentifier>
+		</ModReference>
+	</ItemGroup>
+	<ItemGroup>
+		<KSPVersionFile Include=".">
+			<Destination>$(KSPBT_ModRoot)/IndividualRCS.version</Destination>
+			<URL>https://github.com/xCuri0/IndividualRCS/releases/latest/download/IndividualRCS.version</URL>
+			<Download>https://github.com/xCuri0/IndividualRCS/releases/latest</Download>
+		</KSPVersionFile>
+	</ItemGroup>
+
+	<!-- Publicizer -->
+	<ItemGroup>
+		<Publicize Include="Assembly-CSharp:ModuleRCS.tC" />
+		<Publicize Include="Assembly-CSharp:ModuleRCS.adjusterCache" />
+		<Publicize Include="Assembly-CSharp:ModuleRCS.inputRot" />
+		<Publicize Include="Assembly-CSharp:ModuleRCS.inputLin" />
+		<Publicize Include="Assembly-CSharp:ModuleRCS.currentThrustForce" />
+	</ItemGroup>
+</Project>

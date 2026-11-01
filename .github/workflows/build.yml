@@ -1,0 +1,14 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: KSPModdingLibs/KSPBuildTools/.github/workflows/build.yml@1.1.1
+    with:
+      build-configuration: Release
+      use-ckan: true
+      artifacts: GameData LICENSE* README* CHANGELOG*
