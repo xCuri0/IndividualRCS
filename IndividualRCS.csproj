@@ -38,6 +38,10 @@
 		</KSPVersionFile>
 	</ItemGroup>
 
+	<PropertyGroup>
+		<KSPBT_ModRoot>$(MSBuildThisFileDirectory)GameData/$(MSBuildProjectName)</KSPBT_ModRoot>
+	</PropertyGroup>
+
 	<!-- Publicizer -->
 	<ItemGroup>
 		<Publicize Include="Assembly-CSharp:ModuleRCS.tC" />
